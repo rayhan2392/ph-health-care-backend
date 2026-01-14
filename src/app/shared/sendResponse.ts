@@ -16,7 +16,7 @@ const sendResponse = <T>(res: Response, jsonData: {
         message: jsonData.message,
         meta: jsonData.meta || null || undefined,
         data: jsonData.data || null || undefined
-    })
+    });
 }
 
 export default sendResponse;
