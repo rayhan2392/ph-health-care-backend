@@ -6,6 +6,8 @@ import { UserValidation } from './user.validation.js';
 
 const router = express.Router();
 
+router.get("/", UserController.getAllUsers);
+
 router.post("/create-patient",
     fileUploader.upload.single("file"),
     (req: Request, res: Response, next: NextFunction) => {
@@ -30,5 +32,6 @@ router.post("/create-patient",
     },
     UserController.createPatient
 );
+
 
 export const UserRoutes = router;
