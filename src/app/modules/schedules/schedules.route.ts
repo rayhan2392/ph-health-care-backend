@@ -5,8 +5,9 @@ import { UserRole } from "../../../generated/client/enums.js";
 
 const router = express.Router();
 
-router.get("/", auth(UserRole.DOCTOR), SchedulesController.schedulesForDoctor);
+router.get("/", auth(UserRole.DOCTOR,UserRole.ADMIN), SchedulesController.schedulesForDoctor);
 
 router.post("/", SchedulesController.createSchedule);
+router.delete("/:id", SchedulesController.deleteSchedule);
 
 export const scheduleRoutes = router;
