@@ -3,6 +3,8 @@ import { prisma } from "../../shared/prisma.js";
 import { IJWTPayload } from "../../types/common.js";
 import { IOptions, paginationHelper } from "../../helper/paginationHelper.js";
 import { Prisma } from "../../../generated/client/client.js";
+import httpStatus from "http-status";
+import ApiError from "../../errors/ApiError.js";
 
 
 const createSchedule = async (payload: any) => {
@@ -48,7 +50,7 @@ const createSchedule = async (payload: any) => {
             })
 
             if (existingSchedule) {
-                throw new Error(`Schedule already exists for ${slotStartDateTime.toISOString()} - ${slotEndDateTime.toISOString()}`);
+                throw new ApiError(httpStatus.CONFLICT, `Schedule already exists for ${slotStartDateTime.toISOString()} - ${slotEndDateTime.toISOString()}`);
             }
 
             if (!existingSchedule) {

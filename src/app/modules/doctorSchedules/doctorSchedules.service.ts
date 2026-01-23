@@ -1,4 +1,3 @@
-import { string } from "zod";
 import { IJWTPayload } from "../../types/common.js";
 import { prisma } from "../../shared/prisma.js";
 
