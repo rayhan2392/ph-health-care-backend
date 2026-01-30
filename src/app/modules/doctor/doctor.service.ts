@@ -169,7 +169,7 @@ ${JSON.stringify(doctors, null, 2)}
 Return your response in JSON format with full individual doctor data. 
 `;
 
- console.log("analyzing......\n")
+    console.log("analyzing......\n")
     const completion = await openai.chat.completions.create({
         model: 'tngtech/deepseek-r1t2-chimera:free',
         messages: [
@@ -191,8 +191,52 @@ Return your response in JSON format with full individual doctor data.
 
 }
 
+const getByIdFromDB = async (id: string) => {
+    const result = await prisma.doctor.findUnique({
+        where: {
+            id,
+            isDeleted: false
+        },
+        include: {
+            doctorSpecialties: {
+                include: {
+                    specialities: true
+                }
+            },
+            doctorSchedules: {
+                include: {
+                    schedule: true
+                }
+            }
+        }
+    })
+    return result;
+}
+
+
+const deleteFromDB = async (id:string) => {
+
+    return await prisma.$transaction(async (tnx)=>{
+        const deleteDoctor = await tnx.doctor.delete({
+            where:{
+                id
+            }
+        })
+        await tnx.user.delete({
+            where:{
+                email:deleteDoctor.email
+            }
+        })
+    })
+    
+}
+
+
+
 export const DoctorService = {
     getAllFromDB,
     updateIntoDB,
-    getAiSuggestions
+    getAiSuggestions,
+    getByIdFromDB,
+    deleteFromDB
 };
