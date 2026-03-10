@@ -3,6 +3,8 @@ import catchAsync from "../../shared/catchAsync.js";
 import { AppointmentService } from "./appointment.service.js";
 import sendResponse from "../../shared/sendResponse.js";
 import { IJWTPayload } from "../../types/common.js";
+import pick from "../../helper/pick.js";
+
 
 
 const createAppointment = catchAsync(async (req: Request & { user?: IJWTPayload }, res: Response) => {
@@ -17,6 +19,39 @@ const createAppointment = catchAsync(async (req: Request & { user?: IJWTPayload 
     })
 });
 
+const getMyAppointment = catchAsync(async (req: Request & { user?: IJWTPayload }, res: Response) => {
+    const options = pick(req.query, ["page", "limit", "sortBy", "sortOrder"]);
+    const fillters = pick(req.query, ["status", "paymentStatus"])
+    const user = req.user;
+    const result = await AppointmentService.getMyAppointment(user as IJWTPayload, fillters, options);
+
+    sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: "Appointment fetched successfully!",
+        data: result
+    })
+})
+
+const updateAppointmentStatus = catchAsync(async (req: Request & { user?: IJWTPayload }, res: Response) => {
+    const { id } = req.params;
+    const { status } = req.body;
+    const user = req.user;
+
+    const result = await AppointmentService.updateAppointmentStatus(id, status, user as IJWTPayload);
+
+    sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: "Appointment updated successfully!",
+        data: result
+    })
+})
+
+
+
 export const AppointmentController = {
     createAppointment,
+    getMyAppointment,
+    updateAppointmentStatus
 }
