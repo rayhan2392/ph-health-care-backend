@@ -55,6 +55,11 @@ export type Payment = Prisma.PaymentModel
  */
 export type Prescription = Prisma.PrescriptionModel
 /**
+ * Model Review
+ * 
+ */
+export type Review = Prisma.ReviewModel
+/**
  * Model Schedule
  * 
  */
