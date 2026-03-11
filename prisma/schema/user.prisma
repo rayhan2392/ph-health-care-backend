@@ -69,6 +69,8 @@ model Patient {
     updatedAt    DateTime @updatedAt
     appointments    Appointment[]
     prescriptions   Prescription[]  
+    patientHealthData PatientHealthData?
+    medicalReports    MedicalReport[]
     reviews           Review[]
 
     user User @relation(fields: [email], references: [email])

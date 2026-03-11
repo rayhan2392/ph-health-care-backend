@@ -388,6 +388,8 @@ export const ModelName = {
   Payment: 'Payment',
   Prescription: 'Prescription',
   Review: 'Review',
+  PatientHealthData: 'PatientHealthData',
+  MedicalReport: 'MedicalReport',
   Schedule: 'Schedule',
   DoctorSchedules: 'DoctorSchedules',
   Specialties: 'Specialties',
@@ -411,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "appointment" | "payment" | "prescription" | "review" | "schedule" | "doctorSchedules" | "specialties" | "doctorSpecialties" | "user" | "admin" | "doctor" | "patient"
+    modelProps: "appointment" | "payment" | "prescription" | "review" | "patientHealthData" | "medicalReport" | "schedule" | "doctorSchedules" | "specialties" | "doctorSpecialties" | "user" | "admin" | "doctor" | "patient"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -708,6 +710,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ReviewCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ReviewCountAggregateOutputType> | number
+        }
+      }
+    }
+    PatientHealthData: {
+      payload: Prisma.$PatientHealthDataPayload<ExtArgs>
+      fields: Prisma.PatientHealthDataFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PatientHealthDataFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PatientHealthDataFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>
+        }
+        findFirst: {
+          args: Prisma.PatientHealthDataFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PatientHealthDataFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>
+        }
+        findMany: {
+          args: Prisma.PatientHealthDataFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>[]
+        }
+        create: {
+          args: Prisma.PatientHealthDataCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>
+        }
+        createMany: {
+          args: Prisma.PatientHealthDataCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PatientHealthDataCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>[]
+        }
+        delete: {
+          args: Prisma.PatientHealthDataDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>
+        }
+        update: {
+          args: Prisma.PatientHealthDataUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>
+        }
+        deleteMany: {
+          args: Prisma.PatientHealthDataDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PatientHealthDataUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PatientHealthDataUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>[]
+        }
+        upsert: {
+          args: Prisma.PatientHealthDataUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PatientHealthDataPayload>
+        }
+        aggregate: {
+          args: Prisma.PatientHealthDataAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePatientHealthData>
+        }
+        groupBy: {
+          args: Prisma.PatientHealthDataGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PatientHealthDataGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PatientHealthDataCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PatientHealthDataCountAggregateOutputType> | number
+        }
+      }
+    }
+    MedicalReport: {
+      payload: Prisma.$MedicalReportPayload<ExtArgs>
+      fields: Prisma.MedicalReportFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MedicalReportFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MedicalReportFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>
+        }
+        findFirst: {
+          args: Prisma.MedicalReportFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MedicalReportFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>
+        }
+        findMany: {
+          args: Prisma.MedicalReportFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>[]
+        }
+        create: {
+          args: Prisma.MedicalReportCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>
+        }
+        createMany: {
+          args: Prisma.MedicalReportCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MedicalReportCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>[]
+        }
+        delete: {
+          args: Prisma.MedicalReportDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>
+        }
+        update: {
+          args: Prisma.MedicalReportUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>
+        }
+        deleteMany: {
+          args: Prisma.MedicalReportDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MedicalReportUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MedicalReportUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>[]
+        }
+        upsert: {
+          args: Prisma.MedicalReportUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MedicalReportPayload>
+        }
+        aggregate: {
+          args: Prisma.MedicalReportAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMedicalReport>
+        }
+        groupBy: {
+          args: Prisma.MedicalReportGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MedicalReportGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MedicalReportCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MedicalReportCountAggregateOutputType> | number
         }
       }
     }
@@ -1399,6 +1549,44 @@ export const ReviewScalarFieldEnum = {
 export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
 
 
+export const PatientHealthDataScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  gender: 'gender',
+  dateOfBirth: 'dateOfBirth',
+  bloodGroup: 'bloodGroup',
+  hasAllergies: 'hasAllergies',
+  hasDiabetes: 'hasDiabetes',
+  height: 'height',
+  weight: 'weight',
+  smokingStatus: 'smokingStatus',
+  dietaryPreferences: 'dietaryPreferences',
+  pregnancyStatus: 'pregnancyStatus',
+  mentalHealthHistory: 'mentalHealthHistory',
+  immunizationStatus: 'immunizationStatus',
+  hasPastSurgeries: 'hasPastSurgeries',
+  recentAnxiety: 'recentAnxiety',
+  recentDepression: 'recentDepression',
+  maritalStatus: 'maritalStatus',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PatientHealthDataScalarFieldEnum = (typeof PatientHealthDataScalarFieldEnum)[keyof typeof PatientHealthDataScalarFieldEnum]
+
+
+export const MedicalReportScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  reportName: 'reportName',
+  reportLink: 'reportLink',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MedicalReportScalarFieldEnum = (typeof MedicalReportScalarFieldEnum)[keyof typeof MedicalReportScalarFieldEnum]
+
+
 export const ScheduleScalarFieldEnum = {
   id: 'id',
   startDateTime: 'startDateTime',
@@ -1649,9 +1837,51 @@ export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
+ * Reference to a field of type 'Gender'
+ */
+export type EnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender'>
+    
+
+
+/**
+ * Reference to a field of type 'Gender[]'
+ */
+export type ListEnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BloodGroup'
+ */
+export type EnumBloodGroupFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BloodGroup'>
+    
+
+
+/**
+ * Reference to a field of type 'BloodGroup[]'
+ */
+export type ListEnumBloodGroupFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BloodGroup[]'>
+    
+
+
+/**
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'MaritalStatus'
+ */
+export type EnumMaritalStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MaritalStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'MaritalStatus[]'
+ */
+export type ListEnumMaritalStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MaritalStatus[]'>
     
 
 
@@ -1680,20 +1910,6 @@ export type EnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$Prism
  * Reference to a field of type 'UserStatus[]'
  */
 export type ListEnumUserStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserStatus[]'>
-    
-
-
-/**
- * Reference to a field of type 'Gender'
- */
-export type EnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender'>
-    
-
-
-/**
- * Reference to a field of type 'Gender[]'
- */
-export type ListEnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender[]'>
     
 
 /**
@@ -1795,6 +2011,8 @@ export type GlobalOmitConfig = {
   payment?: Prisma.PaymentOmit
   prescription?: Prisma.PrescriptionOmit
   review?: Prisma.ReviewOmit
+  patientHealthData?: Prisma.PatientHealthDataOmit
+  medicalReport?: Prisma.MedicalReportOmit
   schedule?: Prisma.ScheduleOmit
   doctorSchedules?: Prisma.DoctorSchedulesOmit
   specialties?: Prisma.SpecialtiesOmit

@@ -774,10 +774,6 @@ export type DoctorUncheckedUpdateOneWithoutUserNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DoctorUpdateToOneWithWhereWithoutUserInput, Prisma.DoctorUpdateWithoutUserInput>, Prisma.DoctorUncheckedUpdateWithoutUserInput>
 }
 
-export type EnumGenderFieldUpdateOperationsInput = {
-  set?: $Enums.Gender
-}
-
 export type DoctorCreateWithoutAppointmentsInput = {
   id?: string
   name: string
