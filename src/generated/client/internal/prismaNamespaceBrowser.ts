@@ -91,8 +91,8 @@ export const AppointmentScalarFieldEnum = {
   videoCallingId: 'videoCallingId',
   status: 'status',
   paymentStatus: 'paymentStatus',
-  createAt: 'createAt',
-  updateAt: 'updateAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type AppointmentScalarFieldEnum = (typeof AppointmentScalarFieldEnum)[keyof typeof AppointmentScalarFieldEnum]
@@ -105,8 +105,8 @@ export const PaymentScalarFieldEnum = {
   transactionId: 'transactionId',
   status: 'status',
   paymentGatewayData: 'paymentGatewayData',
-  createAt: 'createAt',
-  updateAt: 'updateAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
@@ -119,8 +119,8 @@ export const PrescriptionScalarFieldEnum = {
   patientId: 'patientId',
   instructions: 'instructions',
   followUpDate: 'followUpDate',
-  createAt: 'createAt',
-  updateAt: 'updateAt'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type PrescriptionScalarFieldEnum = (typeof PrescriptionScalarFieldEnum)[keyof typeof PrescriptionScalarFieldEnum]
