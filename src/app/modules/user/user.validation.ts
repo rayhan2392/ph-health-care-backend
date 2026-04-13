@@ -30,37 +30,48 @@ const createAdminValidationSchema = z.object({
 
 const createDoctorValidationSchema = z.object({
     password: z.string({
-        error: "Password is required"
+        error: "Password is required",
     }),
     doctor: z.object({
         name: z.string({
-            error: "Name is required!"
+            error: "Name is required!",
         }),
         email: z.string({
-            error: "Email is required!"
+            error: "Email is required!",
         }),
         contactNumber: z.string({
-            error: "Contact Number is required!"
+            error: "Contact Number is required!",
         }),
         address: z.string().optional(),
         registrationNumber: z.string({
-            error: "Reg number is required"
+            error: "Reg number is required",
         }),
         experience: z.number().optional(),
         gender: z.enum([Gender.MALE, Gender.FEMALE]),
         appointmentFee: z.number({
-            error: "appointment fee is required"
+            error: "Appointment fee is required",
         }),
         qualification: z.string({
-            error: "quilification is required"
+            error: "Qualification is required",
         }),
         currentWorkingPlace: z.string({
-            error: "Current working place is required!"
+            error: "Current working place is required!",
         }),
         designation: z.string({
-            error: "Designation is required!"
-        })
-    })
+            error: "Designation is required!",
+        }),
+        // NEW: Add specialties array for doctor creation
+        specialties: z
+            .array(
+                z.string().uuid({
+                    message: "Each specialty must be a valid UUID",
+                })
+            )
+            .min(1, {
+                message: "At least one specialty is required",
+            })
+            .optional(),
+    }),
 });
 
 export const UserValidation = {

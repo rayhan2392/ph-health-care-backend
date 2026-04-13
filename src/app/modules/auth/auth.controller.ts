@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import catchAsync from "../../shared/catchAsync.js";
 import sendResponse from "../../shared/sendResponse.js";
 import { AuthService } from "./auth.service.js";
+import httpStatus from "http-status";
+
 
 const login = catchAsync(async (req: Request, res: Response) => {
     const result = await AuthService.login(req.body);
@@ -30,6 +32,20 @@ const login = catchAsync(async (req: Request, res: Response) => {
     })
 })
 
+const getMe = catchAsync(async (req: Request & { user?: any }, res: Response) => {
+  const user = req.cookies;
+
+  const result = await AuthService.getMe(user);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User retrieved successfully",
+    data: result,
+  });
+});
+
 export const AuthController = {
-    login
+    login,
+    getMe
 }
